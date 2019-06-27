@@ -1,0 +1,26 @@
+.author-card{
+    border: 1px solid black;
+    padding:1rem;
+    margin:1rem .5rem;
+
+}
+
+.author-pic{
+height: 100px;
+width: 100px;
+
+object-fit: cover;
+
+overflow: hidden;
+}
+.author-img{
+    max-height: 100%;
+  
+
+}
+.author{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}

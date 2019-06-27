@@ -1,0 +1,49 @@
+
+$rem-baseline:16px;
+$bgColor: rgb(243, 243, 243);
+.header{ 
+    padding:$rem-baseline/3.3 $rem-baseline/0.8;
+    background-color: $bgColor;
+   
+    border: 1px solid rgb(206, 206, 206);
+    border-radius: 3px;
+.container {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+   width: 100%;
+  
+    .logo {
+        font-size:$rem-baseline/.6;
+        color:red;
+        width:20%;
+        align-self: center;
+    }
+    .nav{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+        .toggle{
+           margin-left:auto;
+           align-self: center;
+        }
+     
+        ul{
+         
+               list-style-type:none; 
+        }
+            
+         
+        
+        .nav-item{
+              display: inline; 
+        
+        }
+        .nav-link{
+            padding: $rem-baseline;
+           color: black;
+            text-decoration:none;
+           cursor: pointer;
+        }
+         }   
+        }}

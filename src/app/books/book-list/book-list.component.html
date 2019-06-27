@@ -1,0 +1,12 @@
+
+<button class="btn">New book</button>
+
+<div class="author-card">
+<a class="author" href="#" *ngFor="let book of books">
+  <div class="author-text">
+  <h4 >{{book.name}}</h4>
+  <p>{{book.description}}</p></div>
+  <div class="author-pic">
+  <img class="author-img" [src]="book.imagePath" alt=""></div>
+</a></div>
+

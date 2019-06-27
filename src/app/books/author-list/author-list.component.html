@@ -1,0 +1,12 @@
+
+<button class="btn">New author</button>
+
+<div class="author-card">
+<a class="author" href="#" *ngFor="let author of authors">
+  <div class="author-text">
+  <h4 >{{author.name}}</h4>
+  <p>{{author.description}}</p></div>
+  <div class="author-pic">
+  <img class="author-img" [src]="author.imagePath" alt=""></div>
+</a></div>
+
