@@ -10,6 +10,7 @@ import { BookItemComponent } from './books/book-list/book-item/book-item.compone
 import { MyListComponent } from './my-list/my-list.component';
 import { MyListEditComponent } from './my-list/my-list-edit/my-list-edit.component';
 import { AuthorListComponent } from './books/author-list/author-list.component';
+import { AuthorItemComponent } from './books/author-list/author-item/author-item.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AuthorListComponent } from './books/author-list/author-list.component';
     BookItemComponent,
     MyListComponent,
     MyListEditComponent,
-    AuthorListComponent
+    AuthorListComponent,
+    AuthorItemComponent
   ],
   imports: [
     BrowserModule,

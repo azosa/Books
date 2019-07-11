@@ -1,18 +1,14 @@
-.books{
-   border: 1px solid black; 
+.author-card{
+    border: 1px solid black;
     padding:1rem;
     margin:1rem .5rem;
-   
-   display: flex;
-    flex-direction: row;
-    justify-content: space-between;
 
 }
 
 .author-pic{
 height: 100px;
 width: 100px;
-
+border-radius: 50%;
 object-fit: cover;
 
 overflow: hidden;
@@ -20,5 +16,11 @@ overflow: hidden;
 .author-img{
     max-height: 100%;
   
+
+}
+.author{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
 }

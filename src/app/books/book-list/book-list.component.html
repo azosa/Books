@@ -2,11 +2,20 @@
 <button class="btn">New book</button>
 
 <div class="author-card">
-<a class="author" href="#" *ngFor="let book of books">
+
+  {{book.name}}
+<a class="author" href="#" *ngFor="let bookEl of books"> 
+ <ng-container *ngIf="book.authorId===bookEl.authorId">
+ <div class="books">
   <div class="author-text">
-  <h4 >{{book.name}}</h4>
-  <p>{{book.description}}</p></div>
+  <h4 >{{bookEl.name}}</h4>
+  <p>{{bookEl.date}}</p></div>
   <div class="author-pic">
-  <img class="author-img" [src]="book.imagePath" alt=""></div>
-</a></div>
+  <img class="author-img" [src]="bookEl.imagePath" alt=""></div>  
+</div>
+</ng-container>
+</a>
+
+
+</div>
 

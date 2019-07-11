@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header (featureSelected)="onNavigate($event)"></app-header>
 
-<app-books></app-books>
-<app-my-list></app-my-list>
+<app-books *ngIf="loadedFeature ==='book'"></app-books>
+<app-my-list *ngIf="loadedFeature !=='book'"></app-my-list>

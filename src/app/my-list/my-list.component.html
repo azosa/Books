@@ -1,1 +1,14 @@
-<p>my-list works!</p>
+<div>
+    <app-my-list-edit></app-my-list-edit>
+    <hr>
+    <div>
+        <ul class="list-group">
+            <a class="list-group-item"
+            *ngFor="let book of books"
+            >
+        {{book.name}} {{book.desc}} 
+        </a>
+
+        </ul>
+    </div>
+</div>
