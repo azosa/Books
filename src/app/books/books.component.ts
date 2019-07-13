@@ -11,9 +11,14 @@ import { BooksService } from './books.service';
 export class BooksComponent implements OnInit {
 selectedAuthor: Author;
 
-  constructor() { }
+  constructor(private booksService:BooksService) { }
 
   ngOnInit() {
+    this.booksService.authorSelected.subscribe(
+      (author: Author) => {
+        this.selectedAuthor=author;
+      }
+    );
   }
 
 }

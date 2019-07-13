@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Author } from '../../author.model';
+import { BooksService } from '../../books.service';
 
 @Component({
   selector: 'app-author-item',
@@ -8,13 +9,13 @@ import { Author } from '../../author.model';
 })
 export class AuthorItemComponent implements OnInit {
 @Input() author: Author;
-@Output() authorSelected=new EventEmitter<void>();
-  constructor() { }
+
+  constructor(private booksService: BooksService) { }
 
   ngOnInit() {
   }
   onSelected(){
-this.authorSelected.emit();
+this.booksService.authorSelected.emit(this.author);
   }
 
 }

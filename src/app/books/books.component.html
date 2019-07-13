@@ -1,6 +1,5 @@
 <div class="container">
-    <app-author-list
-    (authorWasSelected)="selectedAuthor=$event"></app-author-list>
+    <app-author-list></app-author-list>
     <app-book-list *ngIf="selectedAuthor; else info"
     [bookAuthor]="selectedAuthor"></app-book-list>
     <ng-template #info>

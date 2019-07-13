@@ -1,7 +1,9 @@
 import {Book} from '../shared/book.model';
 import {Author} from './author.model';
+import { EventEmitter } from '@angular/core';
 
 export class BooksService{
+authorSelected = new EventEmitter<Author>();
 
     private authors: Author[] = [
         new Author(1,"J. K. Rowling"," born 31 July 1965",
