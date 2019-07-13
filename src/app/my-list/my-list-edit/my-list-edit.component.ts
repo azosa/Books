@@ -1,6 +1,7 @@
-import { Component, OnInit, ElementRef, ViewChild, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 
 import { Book } from '../../shared/book.model'
+import { MyListService } from '../my-list.service';
 
 @Component({
   selector: 'app-my-list-edit',
@@ -13,9 +14,9 @@ export class MyListEditComponent implements OnInit {
 @ViewChild('authorIdInput', {static: true}) authorIdInputRef:ElementRef;
 @ViewChild('pubDateInput', {static: true}) pubDateInputRef:ElementRef;
 @ViewChild('urlInput', {static: true}) urlInputRef:ElementRef;
-@Output() bookAdded = new EventEmitter<Book>();
 
-  constructor() { }
+
+  constructor(private listService: MyListService) { }
 
   ngOnInit() {
   }
@@ -26,6 +27,6 @@ export class MyListEditComponent implements OnInit {
     const pubDate = this.pubDateInputRef.nativeElement.value
     const  url =this.urlInputRef.nativeElement.value;
     const newBook = new Book(authorId,name,pubDate,desc,url);
-    this.bookAdded.emit(newBook);
+this.listService.addBook(newBook);
   }
 }

@@ -13,6 +13,7 @@ import { MyListEditComponent } from './my-list/my-list-edit/my-list-edit.compone
 import { AuthorListComponent } from './books/author-list/author-list.component';
 import { AuthorItemComponent } from './books/author-list/author-item/author-item.component';
 import { DropdownDirective } from './shared/dropdown.directive';
+import { MyListService } from './my-list/my-list.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { DropdownDirective } from './shared/dropdown.directive';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [MyListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

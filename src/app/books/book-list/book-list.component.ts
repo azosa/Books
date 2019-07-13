@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Book } from '../../shared/book.model';
 import { Author } from '../author.model';
 import { BooksService } from '../books.service';
@@ -11,7 +11,7 @@ import { BooksService } from '../books.service';
 })
 export class BookListComponent implements OnInit {
 
-  @Output() bookWasSelected=new EventEmitter<Book>();
+
   @Input() bookAuthor: Book;
   @Input() book: Book;
 
@@ -22,12 +22,11 @@ export class BookListComponent implements OnInit {
   ngOnInit() {
 this.books= this.booksService.getBooks();
   }
-  onBookSelected(book: Book){
-    this.bookWasSelected.emit(book);}
+  onBookSelected(){
+    this.booksService.bookSelected.emit(this.book);
 
     // onNotify(message:string) {
     //   this.more=message;
     // }
-
-
+}
 }
