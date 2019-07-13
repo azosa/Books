@@ -7,13 +7,15 @@ import { Book } from '../shared/book.model';
 })
 export class MyListComponent implements OnInit {
 books: Book[]=[
-  new Book(3,'alicja','nice story','https://www.nic.pl'),
-  new Book(4,'inna','bad story','https://www.nic2.pl')
+  new Book(3,'alicja','nice story','data', 'https://www.nic.pl'),
+  new Book(4,'inna','bad story','data', 'https://www.nic2.pl')
 ];
 
   constructor() { }
 
   ngOnInit() {
   }
-
+  onBookAdded(book:Book){
+this.books.push(book);
+  }
 }

@@ -1,19 +1,36 @@
 <div>
     <form>
         <div>
+            <label for="authorId">AuthorId</label>
+            <input type="text"
+            #authorIdInput>
+            <label for="pubDate">Pub date</label>
+            <input type="text"
+            #pubDateInput>
+            <label for="urlInput">url</label>
+            <input type="text"
+            #urlInput>
             <label for="name">Name</label>
-            <input type="text" id="name">
+            <input 
+            type="text" 
+            id="name"
+            #nameInput>
         </div>
         <div>
             <label for="desc">Description</label>
-          <textarea name="" id="" cols="30" rows="10"></textarea>
+          <textarea 
+          name="" id="" 
+          cols="30" 
+          rows="10"
+          #descInput></textarea>
         </div>
         <div>
             <label for="cover">Cover</label>
-            <input type="text">
+            <input 
+            type="text">
         </div>
         <div>
-            <button class="btn" type="submit">Add</button>
+            <button class="btn" type="button"(click)="onAddItem()">Add</button>
             <button class="btn" type="button">Delete</button>
             <button class="btn" type="button">Clear</button>
         </div>

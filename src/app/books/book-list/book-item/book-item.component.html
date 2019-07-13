@@ -1,1 +1,31 @@
-<p>book-item works!</p>
+
+
+
+<div class="author-card">
+
+
+ <ng-container *ngIf="bookAuthor.authorId===book.authorId">
+   <div class="border" >
+ <div class="books">
+  <div class="author-text">
+  <h4 >{{book.name}}</h4>
+  <p>{{book.date}}</p>   
+  <button class="btn" type="button" (click)="onMoreItem()">
+     more
+  </button> </div>
+  <div class="author-pic">
+  <img class="author-img" [src]="book.imagePath" alt="">
+
+</div>
+
+</div>
+<div>
+</div><app-book-detail [sglBook]='book' *ngIf="more === true"></app-book-detail></div>
+
+<!-- <app-book-detail *ngIf="moreFeature === true"></app-book-detail> -->
+</ng-container>
+
+
+
+</div>
+

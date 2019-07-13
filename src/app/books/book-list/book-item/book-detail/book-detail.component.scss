@@ -1,0 +1,40 @@
+
+.btn-group{
+    position: relative;
+}
+.sth{
+    font-size: 0.9rem;
+    position: absolute;
+    top:1rem;
+ 
+    display: block;
+    list-style: none;
+    width: 30%;
+    height: auto;
+    border:1px solid black;
+    background: white;
+  padding:0;
+
+               li{ 
+       padding:0 0.3rem;
+                           &:hover{
+                         background-color: grey;
+                             }
+
+                 a{ 
+                   
+              
+                color:black;
+                text-decoration: none;
+                        } 
+                }
+ 
+         
+}
+.close{
+   
+    .sth{
+     display: none;
+    }
+}
+

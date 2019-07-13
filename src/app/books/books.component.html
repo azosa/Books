@@ -2,7 +2,7 @@
     <app-author-list
     (authorWasSelected)="selectedAuthor=$event"></app-author-list>
     <app-book-list *ngIf="selectedAuthor; else info"
-    [book]="selectedAuthor"></app-book-list>
+    [bookAuthor]="selectedAuthor"></app-book-list>
     <ng-template #info>
         <p>Please select an author</p>
     </ng-template>

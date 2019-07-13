@@ -1,21 +1,41 @@
 
 <button class="btn">New book</button>
+{{bookAuthor.name}}
+<!-- (moreFeature)='onNotify($event)'  -->
+<app-book-item 
 
-<div class="author-card">
+*ngFor="let bookEl of books"
+[book]="bookEl"
+[bookAuthor]="bookAuthor"
+(bookSelected)=onBookSelected(bookEl)> 
+ </app-book-item> 
+
+
+
+<!-- <div class="author-card">
 
   {{book.name}}
 <a class="author" href="#" *ngFor="let bookEl of books"> 
  <ng-container *ngIf="book.authorId===bookEl.authorId">
+
+   <div class="border" >
  <div class="books">
   <div class="author-text">
   <h4 >{{bookEl.name}}</h4>
-  <p>{{bookEl.date}}</p></div>
+  <p>{{bookEl.date}}</p>   
+  <button class="btn" type="button"(click)="onMoreItem()">more</button> </div>
   <div class="author-pic">
-  <img class="author-img" [src]="bookEl.imagePath" alt=""></div>  
+  <img class="author-img" [src]="bookEl.imagePath" alt="">
+
 </div>
+
+</div>
+<div>
+<app-book-detail *ngIf="moreFeature === true"></app-book-detail>
+</div></div>
 </ng-container>
 </a>
 
 
-</div>
+</div> -->
 

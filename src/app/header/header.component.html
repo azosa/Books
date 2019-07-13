@@ -8,13 +8,20 @@
        
         <ul class="nav-bar">
           <li class="nav-item">
-    <a href="" (click)="onSelect('book')" class="nav-link">Books</a>
+    <a (click)="onSelect('book')" class="nav-link">Books</a>
           </li>
           <li class="nav-item">
-    <a href="" (click)="onSelect('my-list')" class="nav-link">To read List</a>
+    <a (click)="onSelect('my-list')" class="nav-link">To read List</a>
           </li>
         </ul> 
-        <div class="toggle">Manage<span></span></div>
+        <div appDropDown class="toggle">Manage
+          <ul class="sth">
+              <li><a href="#">To my list</a></li>
+              <li><a href="#">edit book</a></li>
+              <li><a href="#">delete book</a></li>
+            </ul>
+          </div>
+
       </nav>
     </div>
       </header>
