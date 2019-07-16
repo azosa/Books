@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 
 import { Book } from '../../shared/book.model'
 import { MyListService } from '../my-list.service';
+import { Author } from '../../books/author.model';
 
 @Component({
   selector: 'app-my-list-edit',
@@ -14,7 +15,7 @@ export class MyListEditComponent implements OnInit {
 @ViewChild('authorIdInput', {static: true}) authorIdInputRef:ElementRef;
 @ViewChild('pubDateInput', {static: true}) pubDateInputRef:ElementRef;
 @ViewChild('urlInput', {static: true}) urlInputRef:ElementRef;
-
+authors: Author[];
 
   constructor(private listService: MyListService) { }
 

@@ -14,6 +14,9 @@ import { AuthorListComponent } from './books/author-list/author-list.component';
 import { AuthorItemComponent } from './books/author-list/author-item/author-item.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { MyListService } from './my-list/my-list.service';
+import { BookStartComponent } from './books/book-start/book-start.component';
+import { AuthorEditComponent } from './books/author-edit/author-edit.component';
+import { BookEditComponent } from './books/book-edit/book-edit.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { MyListService } from './my-list/my-list.service';
     MyListEditComponent,
     AuthorListComponent,
     AuthorItemComponent,
-    DropdownDirective
+    DropdownDirective,
+    BookStartComponent,
+    AuthorEditComponent,
+    BookEditComponent
   ],
   imports: [
     BrowserModule,

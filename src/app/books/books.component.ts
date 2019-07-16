@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Author } from './author.model';
 import { BooksService } from './books.service';
 
 @Component({
@@ -9,16 +8,11 @@ import { BooksService } from './books.service';
   providers: [BooksService]
 })
 export class BooksComponent implements OnInit {
-selectedAuthor: Author;
+
 
   constructor(private booksService:BooksService) { }
 
   ngOnInit() {
-    this.booksService.authorSelected.subscribe(
-      (author: Author) => {
-        this.selectedAuthor=author;
-      }
-    );
   }
 
 }

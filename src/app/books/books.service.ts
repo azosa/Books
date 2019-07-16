@@ -1,12 +1,12 @@
 import {Book} from '../shared/book.model';
 import {Author} from './author.model';
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { MyListService } from '../my-list/my-list.service';
 @Injectable()
 
 export class BooksService{
-authorSelected = new EventEmitter<Author>();
-bookSelected = new EventEmitter<Book>();
+
+
 
     private authors: Author[] = [
         new Author(1,"J. K. Rowling"," born 31 July 1965",
@@ -26,7 +26,10 @@ constructor(private listService:MyListService){}
       getAuthors(){
         return this.authors.slice();
       }
-      getBooks(){
+      getAuthor(index:number){
+        return this.authors[index];
+      }
+       getBooks(){
         return this.books.slice();
       }
       addBooksToMyList(book:Book){

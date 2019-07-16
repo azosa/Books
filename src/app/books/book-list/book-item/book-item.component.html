@@ -1,10 +1,10 @@
 
 
 
-<div class="author-card">
 
 
- <ng-container *ngIf="bookAuthor.authorId===book.authorId">
+
+ <ng-container *ngIf="author.authorId===book.authorId">
    <div class="border" >
  <div class="books">
   <div class="author-text">
@@ -20,11 +20,10 @@
 
 </div>
 <div>
-</div><app-book-detail [sglBook]='book' *ngIf="more === true"></app-book-detail></div>
+</div><app-book-detail 
+[index]='index'
+[sglBook]='book' *ngIf="more === true"></app-book-detail></div>
 
 </ng-container>
 
-
-
-</div>
 

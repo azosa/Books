@@ -1,11 +1,12 @@
 
-<button class="btn">New book</button>
-{{bookAuthor.name}}
+<button (click)="onNewBook()" class="btn">New book</button>
+
 <app-book-item 
 
-*ngFor="let bookEl of books"
+*ngFor="let bookEl of books; let i =index"
 [book]="bookEl"
-[bookAuthor]="bookAuthor"
+[author]="selectedAuthor"
+[index]="i"
 > 
  </app-book-item> 
 

@@ -1,6 +1,7 @@
 
-<button class="btn">New author</button>
+<button class="btn" (click)=onNewAuthor()>New author</button>
 
-<app-author-item *ngFor="let authorEl of authors"
+<app-author-item *ngFor="let authorEl of authors; let i=index"
 [author] = "authorEl"
+[index]="i"
 ></app-author-item>

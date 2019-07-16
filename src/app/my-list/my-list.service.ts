@@ -1,8 +1,10 @@
 import { Book } from '../shared/book.model'
-import { EventEmitter } from '@angular/core';
+
+import { Subject } from 'rxjs';
 
 export class MyListService{
-booksChanged = new EventEmitter<Book[]>();
+booksChanged = new Subject<Book[]>();
+
     private books: Book[]=[
         new Book(3,'alicja','nice story','data', 'https://www.nic.pl'),
         new Book(4,'inna','bad story','data', 'https://www.nic2.pl')
@@ -22,7 +24,7 @@ booksChanged = new EventEmitter<Book[]>();
          }
 if(y===0){
 this.books.push(book);
-        this.booksChanged.emit(this.books.slice());}
+        this.booksChanged.next(this.books.slice());}
 }
 
 }

@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Book } from '../../shared/book.model';
-import { Author } from '../author.model';
+import {Author} from '../author.model'
 import { BooksService } from '../books.service';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+
 
 
 @Component({
@@ -12,21 +14,37 @@ import { BooksService } from '../books.service';
 export class BookListComponent implements OnInit {
 
 
-  @Input() bookAuthor: Book;
-  @Input() book: Book;
+  // @Input() bookAuthor: Book;
+  // @Input() book: Book;
+
+  selectedAuthor: Author;
+  id:number;
+  index:number;
 
 
   books: Book[];
-  constructor(private booksService:BooksService) { }
+  constructor(private booksService:BooksService,  private route: ActivatedRoute, private router:Router) { }
 
   ngOnInit() {
-this.books= this.booksService.getBooks();
-  }
-  onBookSelected(){
-    this.booksService.bookSelected.emit(this.book);
 
-    // onNotify(message:string) {
-    //   this.more=message;
-    // }
-}
+    this.route.params.subscribe(
+      (params: Params)=>{
+        this.id = +params['id'];
+        this.selectedAuthor=this.booksService.getAuthor(this.id);
+      }
+    )
+
+this.books= this.booksService.getBooks();
+
+
+  }
+  onNewBook(){
+    console.log(this.books)
+this.router.navigate(['/new-book'], {relativeTo:this.route});
+  }
+//   onBookSelected(){
+//     this.booksService.bookSelected.emit(this.book);
+
+
+// }
 }

@@ -1,9 +1,12 @@
-<div class="author-card">
-    <a class="author" href="#"
-    (click)="onSelected()">
+
+    <div class="author-card" routerLinkActive="active"> 
+      <div class="author"
+  [routerLink]="[index]"
+ >
       <div class="author-text">
       <h4 >{{author.name}}</h4>
+     
       <p>{{author.description}}</p></div>
       <div class="author-pic">
       <img class="author-img" [src]="author.imagePath" alt=""></div>
-    </a></div>
+      </div> <button (click)="onEditAuthor()" class="btn" type="button">Edit author</button></div>
