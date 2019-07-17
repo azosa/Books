@@ -1,14 +1,17 @@
 <div>
-    <app-my-list-edit></app-my-list-edit>
+    <app-my-list-edit [authors]="authors"></app-my-list-edit>
     <hr>
     <div>
-        <ul class="list-group">
-            <li class="list-group-item"
-            *ngFor="let book of books"
-            >
-        {{book.name}} {{book.desc}} 
-        </li>
+        <div class="list-group">
+            <div class="list-group-item" *ngFor="let book of books;let i=index" (click)="onEditItem(i)">
+                <ng-container *ngFor="let author of authors">
+                    <div *ngIf="author.authorId===book.authorId">
+                        {{author.name | titlecase}}
+                        {{book.name | titlecase}} {{book.desc}}
+                    </div>
+                </ng-container>
+            </div>
+        </div>
 
-        </ul>
     </div>
 </div>

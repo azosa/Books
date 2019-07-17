@@ -11,7 +11,6 @@ export class BookItemComponent implements OnInit {
   @Input() book: Book;
   @Input() author:Author;
   @Input() index:number;
-  // książki w tabeli
   more:boolean=false;
 
   constructor() { }

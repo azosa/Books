@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Author } from '../../author.model';
 import { Router, ActivatedRoute } from '@angular/router';
+import { BooksService } from '../../books.service';
 
 
 @Component({
@@ -11,12 +12,17 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class AuthorItemComponent implements OnInit {
 @Input() author: Author;
 @Input() index:number;
-constructor(private router: Router, private route: ActivatedRoute){}
+
+
+constructor(private router: Router, private route: ActivatedRoute, private booksService:BooksService){}
 
   ngOnInit() {
   }
   onEditAuthor(){
 this.router.navigate([this.index,'edit'],{relativeTo: this.route});
+  }
+  onDeleteAuthor(){
+this.booksService.deleteAuthor(this.index);
   }
 
 }

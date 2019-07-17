@@ -22,4 +22,7 @@ this.booksService.addBooksToMyList(this.sglBook);
   onEditBook(){
 this.router.navigate([this.index,'edit'], {relativeTo:this.route});
   }
+  onDeleteBook(){
+    this.booksService.deleteBook(this.index);
+  }
 }

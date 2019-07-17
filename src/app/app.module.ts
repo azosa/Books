@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import {HttpModule} from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +19,9 @@ import { MyListService } from './my-list/my-list.service';
 import { BookStartComponent } from './books/book-start/book-start.component';
 import { AuthorEditComponent } from './books/author-edit/author-edit.component';
 import { BookEditComponent } from './books/book-edit/book-edit.component';
+import { BooksService } from './books/books.service';
+import {DataStorageService } from './shared/data-storage.service';
+
 
 @NgModule({
   declarations: [
@@ -33,13 +38,17 @@ import { BookEditComponent } from './books/book-edit/book-edit.component';
     DropdownDirective,
     BookStartComponent,
     AuthorEditComponent,
-    BookEditComponent
+    BookEditComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    HttpModule
   ],
-  providers: [MyListService],
+  providers: [MyListService, BooksService, DataStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

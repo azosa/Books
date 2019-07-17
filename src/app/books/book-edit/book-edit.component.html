@@ -1,1 +1,48 @@
-<p>book-edit works!</p>
+<div class="container">
+        <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+            <button [disabled]="!bookForm.valid" type="submit">Save</button>
+            <button (click)="onCancel()"type="button">Cancel</button>
+            <div class="form-group">
+                    <label for="author">Author</label>
+                    <select class="custom-select" 
+                     (change)="changeAuthor($event)" 
+                    formControlName="authorId" 
+  >
+                            <option 
+                            *ngFor="let author of authors; let i = index" 
+                            [value]="authors[i].authorId"
+                            >
+                            {{author.name}}</option>
+                            </select>
+                   
+    <label for="name">Name</label>
+    <input 
+    type="text"
+    id="name"
+    formControlName="name"
+    class="">
+   
+<label for="date">Publication date:</label>
+<input 
+type="date"
+id="date"
+formControlName="date"
+class="">
+
+    <label for="desc">Description</label>
+    <textarea 
+    type="text"
+    id="desc"
+    formControlName="desc"
+    class=""
+    rows="6"></textarea>
+    <label for="imagePath">ImagePath</label>
+    <input 
+    type="text"
+    id="imagePath"
+    formControlName="imagePath"
+    class="">
+  
+            </div>
+        </form>
+    </div>

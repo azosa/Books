@@ -1,40 +1,58 @@
 <div>
-    <form>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
         <div>
-            <label for="authorId">AuthorId</label>
-            <select id="authorId">
-                <option value="a" #authorIdInput>a</option>
+            <label for="author">Author</label>
+            <select 
+            required
+            name="author"    
+            ngModel   
+            id="author">
+                <option *ngFor="let author of authors" 
+                [value]="author.authorId">{{author.name | titlecase}}</option>
             </select>
             
-            <label for="pubDate">Pub date</label>
-            <input type="text"
-            #pubDateInput>
-            <label for="urlInput">url</label>
-            <input type="text"
-            #urlInput>
-            <label for="name">Name</label>
+            <label for="pubDate">Publication date</label>
+            <input type="date"
+            ngModel
+            name="pubDate"
+            >
+
+
+            <label for="title">Title</label>
             <input 
+            required
             type="text" 
-            id="name"
-            #nameInput>
+            id="title"
+            ngModel
+            name="title"
+            >
         </div>
+
         <div>
             <label for="desc">Description</label>
           <textarea 
-          name="" id="" 
-          cols="30" 
+          id="desc" 
           rows="10"
-          #descInput></textarea>
+          ngModel
+          name="desc"
+          ></textarea>
         </div>
+
+
         <div>
             <label for="cover">Cover</label>
             <input 
-            type="text">
+            type="text"
+            ngModel
+            name="cover"
+            pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$">
         </div>
+
+
         <div>
-            <button class="btn" type="button"(click)="onAddItem()">Add</button>
-            <button class="btn" type="button">Delete</button>
-            <button class="btn" type="button">Clear</button>
+            <button class="btn" type="submit" [disabled]="!f.valid">{{editMode ? 'Update' : 'Add' }}</button>
+            <button class="btn" type="button"(click)="onDelete()" *ngIf="editMode">Delete</button>
+            <button class="btn" type="button" (click)="onClear()">Clear</button>
         </div>
     </form>
 </div>

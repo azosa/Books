@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Book } from '../../shared/book.model';
 import {Author} from '../author.model'
 import { BooksService } from '../books.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 
 
@@ -11,15 +12,11 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.scss']
 })
-export class BookListComponent implements OnInit {
-
-
-  // @Input() bookAuthor: Book;
-  // @Input() book: Book;
-
+export class BookListComponent implements OnInit,OnDestroy {
   selectedAuthor: Author;
   id:number;
   index:number;
+  subscription:Subscription;
 
 
   books: Book[];
@@ -35,16 +32,19 @@ export class BookListComponent implements OnInit {
     )
 
 this.books= this.booksService.getBooks();
-
+this.subscription=this.booksService.booksChanged
+   .subscribe(
+     (books: Book[])=>{
+       this.books = books;
+     }
+   )
 
   }
   onNewBook(){
-    console.log(this.books)
+
 this.router.navigate(['/new-book'], {relativeTo:this.route});
   }
-//   onBookSelected(){
-//     this.booksService.bookSelected.emit(this.book);
-
-
-// }
+  ngOnDestroy(){
+this.subscription.unsubscribe();
+  }
 }

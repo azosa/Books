@@ -8,8 +8,8 @@
    <div class="border" >
  <div class="books">
   <div class="author-text">
-  <h4 >{{book.name}}</h4>
-  <p>{{book.date}}</p>   
+  <h4 >{{book.name | titlecase}}</h4>
+  <p>Publication date: {{book.date | date}}</p>
   <button class="btn" type="button" (click)="onMoreItem()">
      more
   </button> </div>

@@ -1,3 +1,3 @@
 export class Book {
-  constructor(public authorId: number, public name: string, public date: string, public desc:string, public imagePath: string){}
+  constructor(public authorId: number, public name: string, public date: Date, public desc:string, public imagePath: string){}
  }

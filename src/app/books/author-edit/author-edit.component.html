@@ -1,1 +1,35 @@
-<p>author-edit works!</p>
+<div class="container">
+    <form [formGroup]="authorForm" (ngSubmit)="onSubmit()">
+        <button [disabled]="!authorForm.valid" type="submit">Save</button>
+        <button (click)="onCancel()"type="button">Cancel</button>
+        <div class="form-group">
+<label for="name">Name</label>
+<input 
+type="text"
+id="name"
+formControlName="name"
+class="">
+
+<label for="date">Born:</label>
+<input 
+type="date"
+id="date"
+formControlName="date"
+class="">
+
+<label for="desc">Description</label>
+<textarea 
+type="text"
+id="desc"
+formControlName="desc"
+class=""
+rows="6"></textarea>
+<label for="imagePath">ImagePath</label>
+<input 
+type="text"
+id="imagePath"
+formControlName="imagePath"
+class="">
+        </div>
+    </form>
+</div>

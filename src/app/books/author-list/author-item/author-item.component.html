@@ -1,12 +1,15 @@
 
     <div class="author-card" routerLinkActive="active"> 
+     
       <div class="author"
   [routerLink]="[index]"
  >
       <div class="author-text">
-      <h4 >{{author.name}}</h4>
-     
+      <h4 >{{author.name | titlecase}}</h4>
+       <p>Born {{author.date | date}}</p>
       <p>{{author.description}}</p></div>
       <div class="author-pic">
       <img class="author-img" [src]="author.imagePath" alt=""></div>
-      </div> <button (click)="onEditAuthor()" class="btn" type="button">Edit author</button></div>
+      </div> <button (click)="onEditAuthor()" class="btn" type="button">Edit author</button>
+      <button (click)="onDeleteAuthor()" class="btn" type="button">Delete author</button>
+    </div>
