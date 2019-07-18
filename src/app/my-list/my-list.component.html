@@ -1,17 +1,26 @@
 <div>
     <app-my-list-edit [authors]="authors"></app-my-list-edit>
     <hr>
-    <div>
-        <div class="list-group">
-            <div class="list-group-item" *ngFor="let book of books;let i=index" (click)="onEditItem(i)">
-                <ng-container *ngFor="let author of authors">
-                    <div *ngIf="author.authorId===book.authorId">
-                        {{author.name | titlecase}}
-                        {{book.name | titlecase}} {{book.desc}}
-                    </div>
-                </ng-container>
-            </div>
-        </div>
 
+    <div class="list-group-item" *ngFor="let book of books;let i=index" (click)="onEditItem(i)">
+        <ng-container *ngFor="let author of authors">
+            <div class="books" *ngIf="author.authorId===book.authorId">
+                <div class="author-pic">
+                    <img class="author-img" [src]="book.imagePath" alt="">
+                </div>
+                <div class="author-text">  
+                    <div class="author-main">
+                    <p style="font-weight:bold">{{author.name | titlecase}}</p>
+                     <p style="margin-left:1rem;">{{book.name | titlecase}}</p>  
+                
+                    </div>
+                    {{book.desc}}
+                
+                </div>
+             
+            </div>
+        </ng-container>
     </div>
+
+
 </div>

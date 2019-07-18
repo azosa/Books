@@ -54,8 +54,10 @@ this.mlForm.reset();
 this.editMode=false;
   }
   onDelete(){
-this.listService.deleteBook(this.editedItemIndex);
-this.onClear();
+    var answer=confirm("Are you sure?")
+  if(answer){ this.listService.deleteBook(this.editedItemIndex);
+    this.onClear();}
+
   }
   ngOnDestroy() {
 

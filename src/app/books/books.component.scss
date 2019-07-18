@@ -1,4 +1,14 @@
-.container{
+
+ .container{
+   
+    margin:2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+
+}
+@media (min-width: 700px) {
+     .container{
    
     margin:2rem;
     display: grid;
@@ -6,3 +16,4 @@
     grid-template-rows: 1fr;
 
 }
+ }

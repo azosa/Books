@@ -3,22 +3,90 @@ body{
     margin:0;
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
+  background: rgb(248, 248, 248);
 }
 .btn{
-	box-shadow:inset 0px 1px 0px 0px #cf866c;
-	background-color:#d0451b;
 	border-radius:3px;
-	border:1px solid #942911;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
 	font-size:13px;
 	padding:6px 24px;
 	text-decoration:none;
-    text-shadow:0px 1px 0px #854629;
     margin-left:auto;
-    align-self: center;
+	align-self: center;
+	margin:.5rem;
 }
-.btn:hover{
-	background-color:#ad3c19;
+
+.btn-red{
+box-shadow:inset 0px 1px 0px 0px #cf866c;
+	background-color:#d0451b;	
+	border:1px solid #942911; 
+	 text-shadow:0px 1px 0px #854629;
+}
+.btn-red:hover{
+background-color:#ad3c19;
+}
+.btn-blue{
+	box-shadow:inset 0px 1px 0px 0px #90bccf;
+	background-color:#019ad2;
+	border:1px solid #057fd0;
+	text-shadow:0px 1px 0px #5b6178;
+}
+.btn-blue:hover{
+	background-color:#0281af;
+}
+.btn-green{
+	box-shadow:inset 0px 1px 0px 0px #72b352;
+	background-color:#77b55a;
+	border:1px solid #4b8f29;
+	text-shadow:0px 1px 0px #3e7327;
+}
+.btn-green:hover{
+	background-color:#5d8d47;
+}
+
+form{
+	width: 80%;
+	margin:0 auto;
+}
+input,textarea,select{
+	display: inline-block;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	padding: 10px 20px;
+	border: 1px solid #b7b7b7;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+	color: rgba(66,68,68,1);
+	-o-text-overflow: clip;
+	text-overflow: clip;
+	background: rgba(234,234,234,1);
+	-webkit-box-shadow: 1px 1px 4px 0 rgba(0,0,0,0.2) ;
+	box-shadow: 1px 1px 4px 0 rgba(0,0,0,0.2) ;
+	text-shadow: 1px 1px 0 rgba(255,255,255,0.66) ;
+	-webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+	-moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+	-o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+	transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+select,option{
+	cursor: pointer;
+}
+.form-group{
+	display: flex;
+	flex-direction: column;
+}
+.validation-error{
+	font-size: .8rem;
+	color:red;
+}
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched{
+border:1px solid red;
+}
+button:disabled,
+button[disabled]{
+	filter: grayscale(1);
 }

@@ -1,0 +1,14 @@
+<form (ngSubmit)="onSignup(f)" #f="ngForm">
+    <div class="form-group">
+        <label for="email">Mail</label>
+        <input type="email" id="email" name="email" email ngModel #email="ngModel">
+        <ng-container *ngIf="!email.valid && email.touched"><span class="validation-error">Please enter a valid email address</span></ng-container>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input  required minlength="6" type="password" id="password" name="password" ngModel #pass="ngModel">
+        <ng-container *ngIf="!pass.valid && pass.touched"><span class="validation-error">Password should be at least 6 characters</span></ng-container>
+    </div>
+    <button  class="btn btn-green" type="submit">Sign up</button>
+    </form>

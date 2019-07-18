@@ -1,7 +1,7 @@
 <div class="container">
     <form [formGroup]="authorForm" (ngSubmit)="onSubmit()">
-        <button [disabled]="!authorForm.valid" type="submit">Save</button>
-        <button (click)="onCancel()"type="button">Cancel</button>
+        <button  class="btn btn-green"  [disabled]="!authorForm.valid" type="submit">Save</button>
+        <button  class="btn btn-red"  (click)="onCancel()"type="button">Cancel</button>
         <div class="form-group">
 <label for="name">Name</label>
 <input 
@@ -9,6 +9,7 @@ type="text"
 id="name"
 formControlName="name"
 class="">
+<span *ngIf="!authorForm.get('name').valid && authorForm.get('name').touched"class="validation-error">Please enter author's name</span>
 
 <label for="date">Born:</label>
 <input 
@@ -24,12 +25,15 @@ id="desc"
 formControlName="desc"
 class=""
 rows="6"></textarea>
+<span *ngIf="!authorForm.get('desc').valid && authorForm.get('desc').touched"class="validation-error">Please enter a description</span>
+
 <label for="imagePath">ImagePath</label>
 <input 
 type="text"
 id="imagePath"
 formControlName="imagePath"
-class="">
+class="" >
+<span *ngIf="!authorForm.get('imagePath').valid && authorForm.get('imagePath').touched"class="validation-error">Please enter a valid image path</span>
         </div>
     </form>
 </div>

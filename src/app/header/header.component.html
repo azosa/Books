@@ -6,20 +6,40 @@
       </div>
       <nav class="nav" role="navigation">
        
-        <ul class="nav-bar">
-          <li routerLinkActive="active" class="nav-item">
+     
+          <div routerLinkActive="active" class="nav-item">
     <a routerLink="/books" class="nav-link">Books</a>
-          </li>
-          <li routerLinkActive="active" class="nav-item">
+          </div>
+          <div routerLinkActive="active" class="nav-item">
     <a routerLink="/to-read-list" class="nav-link">To read List</a>
-          </li>
-        </ul> 
-        <div appDropDown class="toggle">Manage
+          </div>
+      
+        <ng-template [ngIf]="!authService.isAuthenticated()">  
+
+          
+          <div class="nav-item menage"> 
+             <a routerLinkActive="active" routerLink='signup'>Register</a> 
+            <a routerLinkActive="active"routerLink='signin'>Log in</a>
+         </div> 
+
+      </ng-template>
+
+     <ng-template [ngIf]="authService.isAuthenticated()">  
+       <div class=" nav-item menage">
+         
+       <div> 
+         <a style="cursor: pointer" 
+         (click)="onLogout()" >Logout</a></div>
+
+       <div appDropDown>Manage
           <ul class="sth">
               <li><a (click)="onSaveData()">Save Data</a></li>
               <li><a (click)="onFetchData()">Fetch Data</a></li>
             </ul>
           </div>
+       </div> </ng-template>
+     
+       
 
       </nav>
     </div>

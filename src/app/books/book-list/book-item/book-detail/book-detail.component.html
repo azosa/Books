@@ -2,12 +2,12 @@
 
 <p>{{sglBook.desc}}</p>
 <div class="btn-group" appDropDown  >
-<button type="button" class="btn">Manage</button>
+<button type="button" class="btn btn-blue">Manage</button>
 
 <ul class="sth">
-  <li><a style="cursor:pointer"  (click)="onAddToMyList()">To my list</a></li>
-  <li><a (click)="onEditBook()">edit book</a></li>
-  <li><a (click)="onDeleteBook()">delete book</a></li>
+  <li (click)="onAddToMyList()"><a class="link" >To my list</a></li>
+  <li class="link"(click)="onEditBook()"><a >edit book</a></li>
+  <li class="link"(click)="onDeleteBook()"><a >delete book</a></li>
 </ul>
 </div>
 </div>

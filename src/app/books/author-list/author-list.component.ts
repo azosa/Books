@@ -3,6 +3,7 @@ import { Author } from '../author.model';
 import { BooksService } from '../books.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-author-list',
@@ -15,7 +16,8 @@ export class AuthorListComponent implements OnInit,OnDestroy {
 
   constructor(private booksService:BooksService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private authService:AuthService) { }
 
   ngOnInit() {
    this.authors=this.booksService.getAuthors();
@@ -31,7 +33,9 @@ export class AuthorListComponent implements OnInit,OnDestroy {
 
 
 onNewAuthor(){
-
+  if(!this.authService.isAuthenticated()){
+    alert('Log in to add author')
+  }
 
 this.router.navigate(['/new-author'], {relativeTo:this.route});
 }

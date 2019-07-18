@@ -1,3 +1,32 @@
 .list-group-item{
 border: 1px solid black;
+cursor: pointer;
+margin:.5rem auto;
+padding:.5rem;   border: 1px solid black; 
+width:80%;
+border-radius:7px;
 }
+
+.books{
+ 
+    display: flex;
+     flex-direction: row;
+     justify-content: space-around;
+ 
+ }
+ .author-main{
+     display: flex;
+     flex-direction: row;
+     justify-content: flex-start;
+    
+ }
+ .author-pic{
+ height: 150px;
+ width: 150px;
+ object-fit: cover;
+margin-right: 1rem;
+ }
+ .author-img{
+     max-height: 100%;
+ }
+ 

@@ -1,16 +1,19 @@
 <div>
     <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-        <div>
+        <div class="form-group">
             <label for="author">Author</label>
             <select 
             required
             name="author"    
             ngModel   
+            #select="ngModel"
             id="author">
                 <option *ngFor="let author of authors" 
                 [value]="author.authorId">{{author.name | titlecase}}</option>
             </select>
-            
+            <ng-container *ngIf="!select.valid && select.touched"><span class="validation-error">Please select an author</span></ng-container>
+
+
             <label for="pubDate">Publication date</label>
             <input type="date"
             ngModel
@@ -25,10 +28,13 @@
             id="title"
             ngModel
             name="title"
+            #title="ngModel"
             >
-        </div>
+            <ng-container *ngIf="!title.valid && title.touched"><span class="validation-error">Please enter title</span></ng-container>
+     
 
-        <div>
+     
+            
             <label for="desc">Description</label>
           <textarea 
           id="desc" 
@@ -36,23 +42,28 @@
           ngModel
           name="desc"
           ></textarea>
-        </div>
+ 
+          
 
 
-        <div>
-            <label for="cover">Cover</label>
+       
+        
+            <label for="cover">Image path</label>
             <input 
             type="text"
             ngModel
             name="cover"
-            pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$">
-        </div>
+            pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$"
+            #image="ngModel">
+            <ng-container *ngIf="!image.valid && image.touched"><span class="validation-error">Please enter valid image path</span></ng-container>
+      
+            
 
-
+</div>
         <div>
-            <button class="btn" type="submit" [disabled]="!f.valid">{{editMode ? 'Update' : 'Add' }}</button>
-            <button class="btn" type="button"(click)="onDelete()" *ngIf="editMode">Delete</button>
-            <button class="btn" type="button" (click)="onClear()">Clear</button>
+            <button class="btn btn-green" type="submit" [disabled]="!f.valid">{{editMode ? 'Update' : 'Add' }}</button>
+            <button class="btn btn-red" type="button"(click)="onDelete()" *ngIf="editMode">Delete</button>
+            <button class="btn btn-blue" type="button" (click)="onClear()">Clear</button>
         </div>
     </form>
 </div>

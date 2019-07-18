@@ -4,6 +4,7 @@ import {Author} from '../author.model'
 import { BooksService } from '../books.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { AuthService } from '../../auth/auth.service';
 
 
 
@@ -20,7 +21,7 @@ export class BookListComponent implements OnInit,OnDestroy {
 
 
   books: Book[];
-  constructor(private booksService:BooksService,  private route: ActivatedRoute, private router:Router) { }
+  constructor(private booksService:BooksService,  private route: ActivatedRoute, private router:Router,private authService:AuthService) { }
 
   ngOnInit() {
 
@@ -41,7 +42,9 @@ this.subscription=this.booksService.booksChanged
 
   }
   onNewBook(){
-
+    if(!this.authService.isAuthenticated()){
+      alert('Log in to add book')
+    }
 this.router.navigate(['/new-book'], {relativeTo:this.route});
   }
   ngOnDestroy(){

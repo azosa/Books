@@ -1,7 +1,7 @@
 <div class="container">
         <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
-            <button [disabled]="!bookForm.valid" type="submit">Save</button>
-            <button (click)="onCancel()"type="button">Cancel</button>
+            <button  class="btn btn-green"  [disabled]="!bookForm.valid" type="submit">Save</button>
+            <button  class="btn btn-red"  (click)="onCancel()"type="button">Cancel</button>
             <div class="form-group">
                     <label for="author">Author</label>
                     <select class="custom-select" 
@@ -14,13 +14,14 @@
                             >
                             {{author.name}}</option>
                             </select>
+                            <span *ngIf="!bookForm.get('authorId').valid && bookForm.get('authorId').touched"class="validation-error">Please choose an author</span>
                    
     <label for="name">Name</label>
     <input 
     type="text"
     id="name"
     formControlName="name"
-    class="">
+    class=""><span *ngIf="!bookForm.get('name').valid && bookForm.get('name').touched"class="validation-error">Please enter author's name</span>
    
 <label for="date">Publication date:</label>
 <input 
@@ -36,12 +37,13 @@ class="">
     formControlName="desc"
     class=""
     rows="6"></textarea>
+    <span *ngIf="!bookForm.get('desc').valid && bookForm.get('desc').touched"class="validation-error">Please enter a description</span>
     <label for="imagePath">ImagePath</label>
     <input 
     type="text"
     id="imagePath"
     formControlName="imagePath"
-    class="">
+    class=""><span *ngIf="!bookForm.get('imagePath').valid && bookForm.get('imagePath').touched"class="validation-error">Please enter a valid image path</span>
   
             </div>
         </form>

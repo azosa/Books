@@ -7,14 +7,14 @@
  <ng-container *ngIf="author.authorId===book.authorId">
    <div class="border" >
  <div class="books">
-  <div class="author-text">
+  <div class="book-text">
   <h4 >{{book.name | titlecase}}</h4>
   <p>Publication date: {{book.date | date}}</p>
-  <button class="btn" type="button" (click)="onMoreItem()">
+  <button class="btn btn-blue" type="button" (click)="onMoreItem()">
      more
   </button> </div>
-  <div class="author-pic">
-  <img class="author-img" [src]="book.imagePath" alt="">
+  <div class="book-pic">
+  <img class="book-img" [src]="book.imagePath" alt="">
 
 </div>
 

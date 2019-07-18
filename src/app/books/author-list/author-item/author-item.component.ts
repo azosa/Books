@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Author } from '../../author.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BooksService } from '../../books.service';
+import { AuthService } from '../../../auth/auth.service';
 
 
 @Component({
@@ -14,15 +15,21 @@ export class AuthorItemComponent implements OnInit {
 @Input() index:number;
 
 
-constructor(private router: Router, private route: ActivatedRoute, private booksService:BooksService){}
+constructor(private router: Router, private route: ActivatedRoute, private booksService:BooksService,private authService:AuthService){}
 
   ngOnInit() {
   }
   onEditAuthor(){
+    if(!this.authService.isAuthenticated()){
+      alert('Log in to edit author')
+    }
+
 this.router.navigate([this.index,'edit'],{relativeTo: this.route});
   }
   onDeleteAuthor(){
-this.booksService.deleteAuthor(this.index);
+    var answer=confirm("Are you sure?")
+    if(answer){ this.booksService.deleteAuthor(this.index);}
+
   }
 
 }

@@ -56,7 +56,7 @@ authors:Author[];
     bookImage=book.imagePath;
     }
     this.bookForm = new FormGroup({
-  'authorId': new FormControl(bookAuthor, Validators.required),
+  'authorId': new FormControl(bookAuthor, [Validators.required,Validators.pattern(/^[0-9][0-9]*/)]),
   'name': new FormControl(bookName, Validators.required),
   'date':new FormControl(bookDate),
   'imagePath':new FormControl(bookImage, [Validators.required,Validators
@@ -73,6 +73,7 @@ authors:Author[];
     this.booksService.addBook(newBook);
     }
    this.onCancel();
+   console.log(this.bookForm.value['authorId']);
 
   }
 
